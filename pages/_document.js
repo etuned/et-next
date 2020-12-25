@@ -7,7 +7,8 @@ class MyDocument extends Document {
     return (
       <Html className='font-sans text-base antialiased'>
         <Head>
-        <GoogleFonts href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway&display=swap" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway&display=optional" rel="stylesheet"/>
         </Head>
         <body className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-50">
           <Main />

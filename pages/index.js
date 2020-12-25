@@ -12,21 +12,22 @@ function urlFor(source) {
 }
 
 const IndexPage = ({data, posts}) => {
-  const { siteTitle = 'Missing site title', heroImageUrl = 'http://via.placeholder.com/550x350', heroImage} = data
+  const { siteTitle = 'Missing site title', heroImageUrl = 'http://via.placeholder.com/1200', heroImage, logo, logoUrl = 'http://via.placeholder.com/30x30',} = data
   const postsSix = posts.slice(0, 6)
    return (
     <div className='container'>
-       <nav className='p-1 flex justify-space-around items-center w-full text-black h-12 fixed top-0 bg-white'>
-           <Image
-             src={heroImageUrl}
-             alt={heroImage.alt}
-             height={50}
-             width={50}
+       <nav className='p-1 flex justify-between items-center w-full text-black h-12 fixed top-0 bg-white dark:bg-black dark:text-gray-50'>
+             <Image
+             className='p-2 pb-2'
+             src={logoUrl}
+             alt={logo.alt}
+             height={30}
+             width={30}
              priority
              layout='fixed'
            />
            <p className='font-body'>{siteTitle}</p>
-           <div className='flex-grow'></div>
+           
            <p>hi</p>
         </nav>
       <div className="hero">
@@ -104,6 +105,9 @@ export default IndexPage
 export async function getStaticProps() {
   const data = await sanity.fetch(`*[_type == 'siteSettings'][0]{
     'siteTitle': title,
+    logo,
+    'logoUrl': logo.asset -> url,
+    'logoAlt': logo.alt,
     heroImage, 
     'heroImageUrl': heroImage.asset -> url
   }`)
