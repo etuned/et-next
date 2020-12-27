@@ -73,28 +73,30 @@ const IndexPage = ({data, posts}) => {
              <Link href='#'>
               <a className='sm:m-2 md:m-3 m-2 2xl:m-4'>
               <div className="flex rounded-2xl transition duration-300 hover:scale-105 hover:shadow-lg h-64 hover:border-gray-50 hover:border justify-center items-center flex-col">
-                <LazyLoadImage
-                  threshold={50}
-                  useIntersectionObserver='true'
-                  className='rounded-2xl w-full rounded-2xl'
-                  alt={post.alt}
-                  height={150}
-                  src={urlFor(post.PostImage)
-                    .auto('format')
-                    .width(300)
-                    .height(100)
-                    .url()} 
-                  width={290}
-                  height={90}
-                  layout='intrinsic' 
-                  placeholderSrc={post.img.metadata.lqip}
-                />
-                  <p className='h-5'>{post.title}</p>
-                  <p className='text-justify p-6 h-30'>
-                  <BlockContent className='text-xs text-justify' blocks={post.excerpt} />
-                  </p>
-                </div>
-                </a>
+                  <div className='w-80'>
+                    <LazyLoadImage
+                      threshold={50}
+                      useIntersectionObserver='true'
+                      className='rounded-2xl w-full rounded-2xl'
+                      alt={post.alt}
+                      height={150}
+                      src={urlFor(post.PostImage)
+                        .auto('format')
+                        .width(300)
+                        .height(100)
+                        .url()} 
+                      width={290}
+                      height={90}
+                      layout='intrinsic' 
+                      placeholderSrc={post.img.metadata.lqip}
+                    />
+                      <p className='h-5'>{post.title}</p>
+                      <p className='text-justify p-6 h-10'>
+                      <BlockContent className='text-xs text-justify' blocks={post.excerpt} />
+                      </p>
+                    </div>
+                  </div>
+                    </a>
               </Link>
             </div>
             ))} 
