@@ -1,5 +1,7 @@
 import { sanity } from '../lib/client'
 import imageUrlBuilder from '@sanity/image-url'
+import { IoIosMenu } from 'react-icons/io'
+import { RiMoonClearLine, RiSunLine } from 'react-icons/ri'
 import BlockContent from '@sanity/block-content-to-react'
 import Image from 'next/image'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
@@ -16,19 +18,21 @@ const IndexPage = ({data, posts}) => {
   const postsSix = posts.slice(0, 6)
    return (
     <div className='container'>
-       <nav className='p-1 flex justify-between items-center w-full text-black h-12 fixed top-0 bg-white dark:bg-black dark:text-gray-50'>
-             <Image
-             className='p-2 pb-2'
-             src={logoUrl}
-             alt={logo.alt}
-             height={30}
-             width={30}
-             priority
-             layout='fixed'
-           />
-           <p className='font-body'>{siteTitle}</p>
+       <nav className='p-1 flex items-center w-full text-black h-12 fixed top-0 bg-white dark:bg-black dark:text-gray-50'>
+           <div className='pl-3'><IoIosMenu/></div>  
+              <div className='pl-3'>
+                <Image
+                  src={logoUrl}
+                  alt={logo.alt}
+                  height={30}
+                  width={30}
+                  priority
+                  layout='fixed'
+                />
+              </div>
+           <p className='font-body text-center flex-grow'>{siteTitle}</p>
            
-           <p>hi</p>
+           <div className='pr-3'><RiMoonClearLine/></div>
         </nav>
       <div className="hero">
         <div className="bg-image">
@@ -42,8 +46,8 @@ const IndexPage = ({data, posts}) => {
         </div>
      <div className='flex text-white z-10 mt-5 justify-center items-center flex-col'>
         <div className='h-96 flex justify-center items-center flex-col'>
-          <p className='text-5xl z-1'>A Portfolio and Blog</p>
-           <p className='text-lg'>by Edwin Bartunek</p> 
+          <p className='text-5xl md:tx-2xl z-1'>A Portfolio and Blog</p>
+           <p className='text-lg md:tx-md'>by Edwin Bartunek</p> 
         </div>
         </div>
   
@@ -77,10 +81,11 @@ const IndexPage = ({data, posts}) => {
                   height={150}
                   src={urlFor(post.PostImage)
                     .auto('format')
-                    .width(350)
-                    .height(150)
+                    .width(300)
+                    .height(100)
                     .url()} 
-                  width={350}
+                  width={290}
+                  height={90}
                   layout='intrinsic' 
                   placeholderSrc={post.img.metadata.lqip}
                 />
