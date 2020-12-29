@@ -1,8 +1,9 @@
-import '../styles/global.css'
-
+import { ChakraProvider } from "@chakra-ui/react"
 function etApp({ Component, pageProps }) {
   return (
-       <Component {...pageProps} />
+    <ChakraProvider>
+      <Component {...pageProps} />
+    </ChakraProvider>
   )
 }
 export default etApp
